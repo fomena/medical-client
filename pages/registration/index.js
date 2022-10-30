@@ -57,9 +57,9 @@ const [currentPatient, setcurentPatient]= useState(currentState)
 
        useEffect(() => {
               if (currentState?.code) {
-                     setQuery({ method: "PUT", body:JSON.stringify(currentPatient) ,URL:`http://localhost:5000/api/patients/${currentPatient?._id}` })
+                     setQuery({ method: "PUT", body:JSON.stringify(currentPatient) ,URL:`https://medicalserverh.herokuapp.com/api/patients${currentPatient?._id}` })
               } else {
-                     setQuery({ method: "POST", body: JSON.stringify(Patient),URL:`http://localhost:5000/api/patients` })
+                     setQuery({ method: "POST", body: JSON.stringify(Patient),URL:`https://medicalserverh.herokuapp.com/api/patients` })
        
               }
        }, [currentPatient, Patient, routerId])
@@ -107,7 +107,7 @@ const [currentPatient, setcurentPatient]= useState(currentState)
                                    console.log('good insertion')
                                    // console.log("etat du user creer", currentState);
 
-                                   router.push({pathname:'/dashboard'})
+                                   router.push({pathname:'/'})
                             } else {
                                    console.log(data.message)
                                    openNotificationWithIcon('error', data.message||data.error)
@@ -147,7 +147,7 @@ const [currentPatient, setcurentPatient]= useState(currentState)
 
                                           <PageHeader className=''
 
-                                                 onBack={() => router.push('/dashboard')}
+                                                 onBack={() => router.push('/')}
                                                  title="New Record"
                                           />
 
