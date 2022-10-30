@@ -57,7 +57,7 @@ const [currentPatient, setcurentPatient]= useState(currentState)
 
        useEffect(() => {
               if (currentState?.code) {
-                     setQuery({ method: "PUT", body:JSON.stringify(currentPatient) ,URL:`https://medicalserverh.herokuapp.com/api/patients${currentPatient?._id}` })
+                     setQuery({ method: "PUT", body:JSON.stringify(currentPatient) ,URL:`https://medicalserverh.herokuapp.com/api/patients/${currentPatient?._id}` })
               } else {
                      setQuery({ method: "POST", body: JSON.stringify(Patient),URL:`https://medicalserverh.herokuapp.com/api/patients` })
        
