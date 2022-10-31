@@ -8,7 +8,12 @@ export const patientSlice = createSlice({
   reducers: {
 
     create: (state, action) => {
-      state.patients.push(action.payload) 
+      let exist = state.patients?.find((e) => e._id === action.payload._id)
+        
+      if (!exist) {
+         state.patients.push(action.payload) 
+      }
+
     },
 
     setPatientsR: (state, action) => {
